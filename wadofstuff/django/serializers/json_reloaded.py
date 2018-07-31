@@ -15,7 +15,7 @@ class Serializer(PythonSerializer):
     """
     def end_serialization(self):
         """Output a JSON encoded queryset."""
-        print json
+        # print json
         json.dump(self.objects, self.stream, cls=DjangoJSONEncoder,
             **self.options)
 

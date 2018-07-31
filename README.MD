@@ -1,7 +1,9 @@
-#Extended Django Serializer Module
+
+# Extended Django Serializer Module
+
 =================================
 
-#### Working on Python 3, Django 2
+## Working on Python 3, Django 2
 
 The wadofstuff.django.serializers python module extends Django's built-in
 serializers, adding 3 new capabilities inspired by the Ruby on Rails JSON

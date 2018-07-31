@@ -3,6 +3,24 @@
 
 ## Working on Python 3, Django 2
 
+### Install & Setup
+
+If you have previous installed `wadofstuff-django-serializers`, then:
+
+    pip uninstall wadofstuff-django-serializers
+
+Else:
+
+    pip install git+https://github.com/hasahmad/wadofstuff-django-serializers --upgrade
+
+In you project `settings.py` file add this:
+
+    SERIALIZATION_MODULES = { 'json': 'wadofstuff.django.serializers.json_reloaded' }
+
+Then in your code `from django.core import serializers` and start using it.
+
+### Description
+
 The wadofstuff.django.serializers python module extends Django's built-in
 serializers, adding 3 new capabilities inspired by the Ruby on Rails JSON
 serializer. These parameters allow the developer more control over how their

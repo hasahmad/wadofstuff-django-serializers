@@ -1,8 +1,8 @@
 """New base serializer class to handle full serialization of model objects."""
 try:
-    from cStringIO import StringIO
-except ImportError:
     from StringIO import StringIO
+except ImportError:
+    from io import StringIO
 
 from django.core.serializers import base
 

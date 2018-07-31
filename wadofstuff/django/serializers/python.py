@@ -92,13 +92,13 @@ class Serializer(base.Serializer):
                 if self.use_natural_keys and hasattr(related, 'natural_key'):
                     related = related.natural_key()
                 else:
-                    if field.remote_field.model.field_name == related._meta.pk.name:
+                    if field.remote_field.field_name == related._meta.pk.name:
                         # Related to remote object via primary key
                         related = related._get_pk_val()
                     else:
                         # Related to remote object via other field
                         related = smart_text(getattr(related,
-                            field.remote_field.model.field_name), strings_only=True)
+                            field.remote_field.field_name), strings_only=True)
                 self._fields[fname] = related
         else:
             self._fields[fname] = smart_text(related, strings_only=True)
@@ -108,7 +108,7 @@ class Serializer(base.Serializer):
         Called to handle a ManyToManyField.
         Recursively serializes relations specified in the 'relations' option.
         """
-        if field.remote_field.model.through._meta.auto_created:
+        if field.remote_field.through._meta.auto_created:
             fname = field.name
             if fname in self.relations:
                 # perform full serialization of M2M
@@ -123,7 +123,7 @@ class Serializer(base.Serializer):
             else:
                 # emulate the original behaviour and serialize to a list of 
                 # primary key values
-                if self.use_natural_keys and hasattr(field.remote_field.model.to, 'natural_key'):
+                if self.use_natural_keys and hasattr(field.remote_field.to, 'natural_key'):
                     m2m_value = lambda value: value.natural_key()
                 else:
                     m2m_value = lambda value: smart_text(

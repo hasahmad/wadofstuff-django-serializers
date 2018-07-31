@@ -5,7 +5,7 @@ try:
     import json
 except ImportError:
     from django.utils import simplejson as json
-from python import Serializer as PythonSerializer
+from .python import Serializer as PythonSerializer
 from django.core.serializers.json import Deserializer as JSONDeserializer, \
     DjangoJSONEncoder
 

@@ -61,7 +61,7 @@ class Serializer(base.Serializer):
         """
         Called to handle each individual (non-relational) field on an object.
         """
-        value = field._get_val_from_obj(obj)
+        value = field.value_from_object(obj)
         # Protected types (i.e., primitives like None, numbers, dates,
         # and Decimals) are passed through as is. All other values are
         # converted to string first.

@@ -1,8 +1,6 @@
 
 # Extended Django Serializer Module
 
-=================================
-
 ## Working on Python 3, Django 2
 
 The wadofstuff.django.serializers python module extends Django's built-in
@@ -19,8 +17,7 @@ The additional capabilities are:
 - relations - a list or dictionary of model related fields to be followed
   and serialized.
 
-Example of serializing a relation
----------------------------------
+# Example of serializing a relation
 
     >>> serializers.serialize('json', Group.objects.all(), indent=4, relations=('permissions',))
     [
@@ -43,5 +40,3 @@ Example of serializing a relation
             }
         }
     ]
-
-

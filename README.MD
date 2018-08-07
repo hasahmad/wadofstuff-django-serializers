@@ -54,7 +54,8 @@ The Wad of Stuff serializers are 100% compatible with the Django serializers whe
 
 # Excludes
 
-    >>> print serializers.serialize('json', Group.objects.all(),        indent=4, excludes=('permissions',))
+    >>> print serializers.serialize('json', Group.objects.all(),
+                indent=4, excludes=('permissions',))
     [
         {
             "pk": 2,
@@ -75,7 +76,8 @@ For demonstration purposes in this example I monkey patch the Group model to hav
     ...     return u'/group/%s' % self.name
     ...
     >>> Group.get_absolute_url = get_absolute_url
-    >>> print serializers.serialize('json', Group.objects.all(),        indent=4, extras=('__unicode__','get_absolute_url'))
+    >>> print serializers.serialize('json', Group.objects.all(),
+            indent=4, extras=('__unicode__','get_absolute_url'))
     [
         {
             "pk": 2,
@@ -101,7 +103,8 @@ When using the relations argument to the serializer you may specify either a lis
 
 This first example shows the simplest way of serializing a related field. The Group model has a ManyToManyField to the Permission model. In this case there is only one permission but if there were more then each would be serialized.
 
-    >>> print serializers.serialize('json', Group.objects.all(),        indent=4, relations=('permissions',))
+    >>> print serializers.serialize('json', Group.objects.all(),
+            indent=4, relations=('permissions',))
     [
         {
             "pk": 2,
@@ -125,7 +128,8 @@ This first example shows the simplest way of serializing a related field. The Gr
 
 The simple case may be all you need but if you want more control over exactly which fields or extras are included, excluded, and the depth of relations to follow then you need to pass a dictionary in the relations option. This dictionary is a series of nested dictionaries that are unrolled and passed as arguments when serializing each related field.
 
-    >>> print serializers.serialize('json', Group.objects.all(), indent=4, relations={'permissions':{'fields':('codename',)}})
+    >>> print serializers.serialize('json', Group.objects.all(),
+            indent=4, relations={'permissions':{'fields':('codename',)}})
     [
         {
             "pk": 2,
@@ -151,7 +155,8 @@ The relations option in this example roughly translates to a call to `serialize(
 
 The power of the relations option becomes obvious when you see it in action serializing related fields that are 2 or more levels deep. Below the content_type ForeignKey field on the Permission model is also serialized.
 
-    >>> print serializers.serialize('json', Group.objects.all(), indent=4, relations={'permissions':{'relations':('content_type',)}})
+    >>> print serializers.serialize('json', Group.objects.all(),
+            indent=4, relations={'permissions':{'relations':('content_type',)}})
     [
         {
             "pk": 2,
@@ -186,7 +191,8 @@ The power of the relations option becomes obvious when you see it in action seri
 
 You may also combine the other options when serializing related fields. In the example below I am excluding the `content_type.app_label` field from being serialized.
 
-    >>> print serializers.serialize('json', Group.objects.all(), indent=4, relations={'permissions':{'relations':{'content_type':{'excludes':('app_label',)}}}})
+    >>> print serializers.serialize('json', Group.objects.all(),
+            indent=4, relations={'permissions':{'relations':{'content_type':{'excludes':('app_label',)}}}})
     [
         {
             "pk": 2,

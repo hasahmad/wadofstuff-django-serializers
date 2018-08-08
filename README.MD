@@ -19,7 +19,7 @@ In you project `settings.py` file add this:
 
 Then in your code `from django.core import serializers` and start using it.
 
-### Description (taken from <https://wadofstuff.blogspot.com/2009/02/django-full-serializers-part-i.html>)
+### Description (from <https://wadofstuff.blogspot.com/2009/02/django-full-serializers-part-i.html>)
 
 The wadofstuff.django.serializers python module extends Django's built-in
 serializers, adding 3 new capabilities inspired by the Ruby on Rails JSON

@@ -13,6 +13,14 @@ Else:
 
     pip install git+https://github.com/hasahmad/wadofstuff-django-serializers --upgrade
 
+If you are using pipenv, then use this command:
+
+    pipenv install git+https://github.com/hasahmad/wadofstuff-django-serializers#egg=wadofstuff-django-serializers
+
+Or if that is not working, then copy this to Pipfile:
+
+    wadofstuff-django-serializers = {git = "https://github.com/hasahmad/wadofstuff-django-serializers"}
+
 In you project `settings.py` file add this:
 
     SERIALIZATION_MODULES = { 'json': 'wadofstuff.django.serializers.json_reloaded' }
@@ -151,7 +159,7 @@ The simple case may be all you need but if you want more control over exactly wh
 
 The relations option in this example roughly translates to a call to `serialize('json', permissions_queryset, fields=('codename',))` when the permissions field is serialized.
 
-### Serializing deeper relations
+## Serializing deeper relations
 
 The power of the relations option becomes obvious when you see it in action serializing related fields that are 2 or more levels deep. Below the content_type ForeignKey field on the Permission model is also serialized.
 
@@ -186,8 +194,7 @@ The power of the relations option becomes obvious when you see it in action seri
         }
     ]
 
-### Combining options
-
+## Combining options
 
 You may also combine the other options when serializing related fields. In the example below I am excluding the `content_type.app_label` field from being serialized.
 

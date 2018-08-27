@@ -2,7 +2,7 @@ from distutils.core import setup
 
 import wadofstuff.django.serializers
 
-README = open('README').read().strip() + "\n\n"
+README = open('README.MD').read().strip() + "\n\n"
 ChangeLog = \
     "What's new\n" + \
     "==========\n" + \

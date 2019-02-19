@@ -16,10 +16,10 @@ setup(
     version=wadofstuff.django.serializers.__version__,
     description='Extended serializers for Django.',
     long_description=LONG_DESCRIPTION,
-    author='Matthew Flanagan',
-    author_email='mattimustang@gmail.com',
+    author='',
+    author_email='',
     url='http://code.google.com/p/wadofstuff/',
-    download_url='https://github.com/Nuevosmedios/wadofstuff-django-serializers/archive/master.zip',
+    download_url='https://github.com/hasahmad/wadofstuff-django-serializers/archive/master.zip',
     packages=(
         'wadofstuff',
         'wadofstuff.django',
